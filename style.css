@@ -81,7 +81,7 @@ h3 {
 
 .button {
   display: inline-block;
-  font-size: 1.6px;
+  font-size: 1.6rem;
   font-weight: 600;
   color: rgb(255, 255, 255);
   background-color: rgb(113, 89, 193);
@@ -136,7 +136,7 @@ CARDS
   margin: auto;
 
   display: grid;
-  grid-template-columns: 310px 310px 310px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 20px;
 }
 
@@ -354,4 +354,84 @@ FORM
 
 #form .button {
   margin: 20px 8px 10px;
+}
+
+
+/* Com o max width, vc diz que tais regras css só vão ser aplicadas até aquela largura */
+@media (max-width: 768px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media (max-width: 630px) {
+  .hero .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero .container p { /* invés de p era pra ser img, mas está sem imagem */
+    order: -1;
+  }
+
+  .form-group {
+    display: block;
+  }
+}
+
+@media (max-width: 540px) {
+  nav {
+    display: none;
+  }
+
+  .one,
+  .two,
+  .three {
+    background-color: #fff;
+    height: 5px;
+    width: 100%;
+    margin: 6px auto;
+  }
+
+  .menu-toggle {
+    width: 40px;
+    height: 30px;
+    margin-right: 20px;
+  }
+
+  /* fullscreen */
+  .menu-section.on {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: #7159c1;
+
+    z-index: 10;
+  }
+
+  .menu-section.on nav {
+    display: block;
+  }
+
+  .menu-section.on .menu-toggle {
+    position: absolute;
+    right: 0;
+    top: 15px;
+  }
+
+  .menu-section.on .menu-toggle .one {
+    transform: rotate(45deg) translate(7px, 7px);
+  }
+
+  .menu-section.on .menu-toggle .two {
+    opacity: 0;
+  }
+
+  .menu-section.on .menu-toggle .three {
+    transform: rotate(-45deg) translate(8px, -9px);
+  }
 }
